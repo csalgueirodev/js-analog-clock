@@ -1,3 +1,3 @@
 # js-analog-clock
 
-An analog clock with vanilla JS and CSS only using transition to make it full analogic
+An animated analog clock with vanilla JS and CSS only using transition to make a full analogic effect
