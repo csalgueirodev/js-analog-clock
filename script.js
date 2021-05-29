@@ -2,8 +2,6 @@ const hours = document.querySelector('.hand.hours')
 const minutes = document.querySelector('.hand.minutes')
 const seconds = document.querySelector('.hand.seconds')
 const realAnalogicEffect = true;
-if (realAnalogicEffect) {
-}
 
 function rotateNumbers() {
     const numbers = document.querySelector('.numbers')
