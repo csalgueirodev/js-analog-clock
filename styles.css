@@ -1,0 +1,125 @@
+:root {
+    --hours-color: rgb(155, 155, 155);
+    --minutes-color: rgb(100, 100, 100);
+    --seconds-color: rgb(231, 0, 0);
+    --numbers-color: rgb(255, 255, 255);
+    --clock-background-color: #222;
+}
+
+*,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.clock {
+    width: 500px;
+    height: 500px;
+    background-color: var(--clock-background-color);
+    border-radius: 50%;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 4px solid var(--numbers-color);
+}
+
+.clock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    text-align: center;
+    color: var(--numbers-color);
+    transform: rotate(calc(var(--rotation) * 1deg));
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.clock .minute-line:after {
+    content: " ";
+    top: 0;
+    height: 5px;
+    position: absolute;
+    border: 1px solid var(--numbers-color);
+    background: var(--numbers-color);
+}
+
+.clock .minute-line:nth-child(5n):after {
+    height: 8px;
+}
+
+.clock .minute-line {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(calc(var(--rotation) * 1deg));
+}
+
+
+.clock::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock .hand.seconds {
+    width: 3px;
+    height: 45%;
+    z-index: 11;
+    background-color: var(--seconds-color);
+}
+
+.clock .hand.minutes {
+    width: 6px;
+    height: 40%;
+    background-color: var(--minutes-color);
+}
+
+.clock .hand.hours {
+    width: 10px;
+    height: 35%;
+    background-color: var(--hours-color);
+}
+
+.clock .hand.minutes::after {
+    content: ' ';
+    display: inline-block;
+    border: 3px solid transparent;
+    border-bottom-color: var(--minutes-color);
+    width: 0;
+    height: 0;
+    transform: translate(0, -15px);
+}
+
+.clock .hand.hours::after {
+    content: ' ';
+    display: inline-block;
+    border: 5px solid transparent;
+    border-bottom-color: var(--hours-color);
+    transform: translate(0, -15px);
+}
