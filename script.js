@@ -1,18 +1,19 @@
-setInterval(updateClock, 1000)
-
-const hours = document.querySelector('[data-hour-hand]')
-const minutes = document.querySelector('[data-minute-hand]')
-const seconds = document.querySelector('[data-second-hand]')
+const hours = document.querySelector('.hand.hours')
+const minutes = document.querySelector('.hand.minutes')
+const seconds = document.querySelector('.hand.seconds')
 const realAnalogicEffect = true;
 if (realAnalogicEffect) {
-    seconds.style.transition = "1000ms linear";
 }
+
 function rotateNumbers() {
-    const numbers = document.querySelectorAll('.number')
-    for (let i = 0; i < numbers.length; i++) {
-        const number = numbers[i];
+    const numbers = document.querySelector('.numbers')
+    for (let i = 0; i < 12; i++) {
+        const number = document.createElement("div")
+        number.classList.add("number")
+        number.textContent = (i + 1);
         let rotationNumberDeg = ((i + 1) * 30);
         number.style.setProperty('--rotation', rotationNumberDeg)
+        numbers.append(number)
     }
 
     const minutesLines = document.querySelector('.minutes-lines')
@@ -49,5 +50,17 @@ function updateClock() {
 function setRotation(element, rotationRatio) {
     element.style.setProperty('--rotation', rotationRatio * 360)
 }
-updateClock()
+
+function addAnimationToHands() {
+    const hands = document.querySelectorAll('.hand')
+    for (let i = 0; i < hands.length; i++) {
+        hands[i].style.transition = "1000ms linear";
+    }
+}
 rotateNumbers();
+updateClock()
+setInterval(updateClock, 1000)
+
+if (realAnalogicEffect) {
+    addAnimationToHands();
+}
