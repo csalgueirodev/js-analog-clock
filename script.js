@@ -39,8 +39,8 @@ function updateClock() {
     //Fix to work with transition because from 359 to 0 it reverses the animation
     if (realAnalogicEffect) {
         if (startDate.getSeconds() === 0) { secondLoops += 1; }
-        if (minutesRatio === 0) { minutesLoops += 1; }
-        if (hoursRatio === 0) { hoursLoops += 1; }
+        if (startDate.getMinutes() === 0) { minutesLoops += 1; }
+        if (startDate.getHours() === 0) { hoursLoops += 1; }
     }
     setRotation(seconds, secondLoops + secondsRatio)
     setRotation(minutes, minutesLoops + minutesRatio)
