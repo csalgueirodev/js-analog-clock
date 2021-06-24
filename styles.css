@@ -4,15 +4,12 @@
     --seconds-color: rgb(231, 0, 0);
     --numbers-color: rgb(255, 255, 255);
     --clock-background-color: #222;
+    font-size: 4vh;
 }
 
 *,
 *::after {
     box-sizing: border-box;
-}
-
-html {
-    font-size: 3vw;
 }
 
 body {
@@ -111,40 +108,4 @@ body {
     width: 0.5rem;
     height: 35%;
     background-color: var(--hours-color);
-}
-
-@media (min-width: 900px) {
-    html {
-        font-size: 30px;
-    }
-
-    .clock .hand.minutes::after {
-        content: ' ';
-        display: inline-block;
-        border: 4px solid transparent;
-        border-bottom-color: var(--minutes-color);
-        width: 0;
-        height: 0;
-        transform: translate(-1px, -28px);
-    }
-
-    .clock .hand.hours::after {
-        content: ' ';
-        display: inline-block;
-        border: 6px solid transparent;
-        border-bottom-color: var(--hours-color);
-        transform: translate(-1px, -28px);
-    }
-
-    .clock .hand.seconds {
-        width: 3px;
-    }
-
-    .clock .hand.minutes {
-        width: 6px;
-    }
-
-    .clock .hand.hours {
-        width: 10px;
-    }
 }
